@@ -1,0 +1,53 @@
+.div-gradient{
+   background: linear-gradient(271deg,#000000,#283E51, #4B79A1, #254752, #0c1e25, #434343);
+   background-size: 800% 800%;
+
+   -webkit-animation: SetGradient 20s ease infinite;
+   -moz-animation: SetGradient 20s ease infinite;
+   -o-animation: SetGradient 20s ease infinite;
+   animation: SetGradient 20s ease infinite;
+
+}
+
+@-webkit-keyframes SetGradient {
+    0%{background-position:0% 47%}
+    50%{background-position:100% 54%}
+    100%{background-position:0% 47%}
+}
+@-moz-keyframes SetGradient {
+    0%{background-position:0% 47%}
+    50%{background-position:100% 54%}
+    100%{background-position:0% 47%}
+}
+@-o-keyframes SetGradient {
+    0%{background-position:0% 47%}
+    50%{background-position:100% 54%}
+    100%{background-position:0% 47%}
+}
+@keyframes SetGradient {
+    0%{background-position:0% 47%}
+    50%{background-position:100% 54%}
+    100%{background-position:0% 47%}
+}
+
+ 
+.div-height{
+   height: 100vh;
+   font-size: 2em;
+}
+.div-second{
+   font-size: 2em;
+}
+
+ /* CARDS */
+.bg-cards-section{
+    background: #eee;
+}
+span{
+    font-size:15px;
+}
+a{
+  text-decoration:none; 
+}
+
+ /* END CARDS */

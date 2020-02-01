@@ -1,0 +1,22 @@
+<nav class="navbar-expand-xs navbar-blue navColor fixed-top p-4">
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon textListColor">
+            <i class="fa fa-bars fa-lg"></i>
+        </span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ml-auto">
+            <a routerLink="/home" (click)="goUp()" class="nav-item nav-link textListColor">
+                <i class="fa fa-home" aria-hidden="true"></i> Inicio</a>
+            <a routerLink="/mos" (click)="goUp()" class="nav-item nav-link textListColor">
+                <i class="fa fa-star-o" aria-hidden="true"></i> Mean Opinion Score</a>
+            <a routerLink="/mos" (click)="goUp()" class="nav-item nav-link textListColor"><i class="fa fa-volume-up"
+                    aria-hidden="true"></i>
+                Escuchar Transferencias</a>
+            <a routerLink="/mos" (click)="goUp()" class="nav-item nav-link textListColor"><i class="fa fa-microphone"
+                    aria-hidden="true"></i>
+                Transferencia de Estilo</a>
+        </div>
+    </div>
+</nav>
