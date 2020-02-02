@@ -18,7 +18,7 @@ export class SidebarComponent implements OnInit {
 
       $(window).scroll(function () {
 
-        if ($(window).scrollTop() > 500) {
+        if ($(window).scrollTop() > 300) {
           $('span').addClass('textListColorScroll');
           $('span').removeClass('textListColor');
         } else {

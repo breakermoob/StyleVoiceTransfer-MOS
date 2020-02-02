@@ -1,8 +1,285 @@
 <div class="container-fluid">
-      <div class="row div-gradient div-height text-center">
-         <div class="col-12 my-auto">
-            <h1 class="text-white display-4 light">Mean Opinion Score</h1>
-            <h3 class="text-white light pt-2">Prueba de Usuarios</h3>
+   <div class="row div-gradient div-height text-center">
+      <div class="col-12 my-auto">
+         <h1 class="text-white light">Mean Opinion Score</h1>
+         <h3 class="text-white light pt-2">Prueba de Usuarios</h3>
+      </div>
+   </div>
+</div>
+<br>
+<div class="container mt-4 mb-4">
+   <div class="row text-center">
+      <div class="col-12 mt-4">
+         <div class="mt-4">
+            <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-star fa-4x" aria-hidden="true"></i>
+            <i class="fa fa-star-half-o fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+         </div>
+         <br>
+         <p class="text-justify text-dark regular pt-4 mt-4">
+            Mean Opinion Score (MOS) es una medida utilizada en el ámbito de la calidad de la experiencia, que
+            representa la calidad general de un estímulo o sistema. Es la media aritmética sobre todos los “valores en
+            una escala predefinida que un sujeto asigna a su opinión sobre el rendimiento de un sistema". Esta sección
+            busca reunir calificaciones de los usuarios por medio de una evaluación de calidad subjetiva.
+
+            MOS es una medida utilizada comúnmente para vídeo, audio, y la evaluación de la calidad audiovisual, pero no
+            se limita a esas modalidades. UIT-T ha definido varias formas de referirse a un MOS en la Recomendación
+            P.800.1 , dependiendo de si la puntuación se obtuvo de audiovisual, de conversación, escuchar, hablar, o
+            pruebas de calidad de vídeo.
+         </p>
+      </div>
+   </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- MultiStep Form -->
+<div class="container-fluid div-gradient">
+   <div class="row justify-content-center mt-0">
+      <div class="col-11 col-sm-11 col-md-10 col-lg-8 text-center p-0 mt-4 mb-4 p-4">
+         <div class="card px-0 pt-4 pb-0 mt-4 mb-4 border">
+            <h2><strong>Tu opinión es muy valiosa para nosotros</strong></h2>
+            <p class="pl-4 pr-4">Califica los audios de 1-5 según que tanta similitud tengo o con cuanta naturalidad se
+               escuchan, siendo 1
+               la peor y 5 la mejor calificación.</p>
+            <div class="row">
+               <div class="col-md-12 mx-0">
+                  <form id="msform" class="text-center">
+                     <!-- progressbar -->
+                     <ul id="progressbar" class="form-card">
+                        <li class="active" id="audio"><strong>Audio 1</strong></li>
+                        <li id="audio"><strong>Audio 2</strong></li>
+                        <li id="audio"><strong>Audio 3</strong></li>
+                        <li id="confirm"><strong>Enviar</strong></li>
+                     </ul> <!-- fieldsets -->
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="/assets/original_1.wav" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="/assets/estilo_1.wav" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" class="next action-button btn btn-outline-dark  pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #2</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="/assets/original_1.wav" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="/assets/estilo_1.wav" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" class="next action-button btn btn-outline-dark  pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #3</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="/assets/original_1.wav" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="/assets/estilo_1.wav" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" class="next action-button btn btn-outline-dark pt-2 pb-2">Siguiente &nbsp;
+                           <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card">
+                           <div class="row justify-content-center">
+                              <div class="col-12 text-center">
+                                 <h2 class="fs-title text-center p-4">Completado!</h2>
+                                 <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+                                 <h5 class="fs-subtitle text-center p-4">Tu opinión ha sido enviada.</h5>
+                              </div>
+                           </div>
+                        </div>
+                     </fieldset>
+                  </form>
+               </div>
+            </div>
          </div>
       </div>
    </div>
+</div>

@@ -1,6 +1,9 @@
 body {
    font-family: 'Lato', sans-serif;
  }
+ a{
+  text-decoration:none; 
+}
  .light {
    font-weight: 300 !important;
  }
@@ -12,5 +15,26 @@ body {
 }
 .transparent{
    background-color: transparent !important;
+}
+
+@-webkit-keyframes SetGradient {
+  0%{background-position:0% 47%}
+  50%{background-position:100% 54%}
+  100%{background-position:0% 47%}
+}
+@-moz-keyframes SetGradient {
+  0%{background-position:0% 47%}
+  50%{background-position:100% 54%}
+  100%{background-position:0% 47%}
+}
+@-o-keyframes SetGradient {
+  0%{background-position:0% 47%}
+  50%{background-position:100% 54%}
+  100%{background-position:0% 47%}
+}
+@keyframes SetGradient {
+  0%{background-position:0% 47%}
+  50%{background-position:100% 54%}
+  100%{background-position:0% 47%}
 }
 
