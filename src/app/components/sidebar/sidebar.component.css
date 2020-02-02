@@ -1,13 +1,14 @@
 .navColor{
-  background-color: rgba(0, 0, 0, 0) !important;
+  background-color: rgba(0, 0, 0, 0);
   width: 100vw;
   -webkit-transition: background-color 1s ease-out;  
   -moz-transition: background-color 1s ease-out;  
   -o-transition: background-color 1s ease-out;  
   transition: background-color 1s ease-out;  
 }
+
 .navColorScroll{
-  background-color: rgba(255, 255, 255, 1) !important;
+  background-color: rgba(255, 255, 255, 1);
   width: 100vw;
   -webkit-transition: background-color 1s ease-out;  
   -moz-transition: background-color 1s ease-out;  
@@ -29,3 +30,8 @@
   -o-transition: color 1s ease-out;  
   transition: color 1s ease-out; 
 }
+
+
+
+
+

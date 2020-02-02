@@ -19,13 +19,9 @@ export class SidebarComponent implements OnInit {
       $(window).scroll(function () {
 
         if ($(window).scrollTop() > 500) {
-          $('a').addClass('textListColorScroll');
-          $('a').removeClass('textListColor');
           $('span').addClass('textListColorScroll');
           $('span').removeClass('textListColor');
         } else {
-          $('a').addClass('textListColor');
-          $('a').removeClass('textListColorScroll');
           $('span').addClass('textListColor');
           $('span').removeClass('textListColorScroll');
         }
@@ -35,6 +31,17 @@ export class SidebarComponent implements OnInit {
     });
 
   }
+
+  toggleActive() {
+    $('.navColor').each(function () {
+      if ($(".navColor").css('background-color') == "rgba(0, 0, 0, 0.6)") {
+        $('.navColor').css('background-color', 'rgba(0, 0, 0, 0)');
+      } else {
+        $('.navColor').css('background-color', 'rgba(0, 0, 0, 0.6)');
+      }
+    });
+  }
+
   goUp() {
     // window.scroll(0, 0);
     let scrollToTop = window.setInterval(() => {
