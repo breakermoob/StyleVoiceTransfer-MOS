@@ -154,7 +154,7 @@ select.list-dt:focus {
 #progressbar li {
    list-style-type: none;
    font-size: 12px;
-   width: 25%;
+   width: 5%;
    float: left;
    position: relative
 }
@@ -175,32 +175,33 @@ select.list-dt:focus {
 }
 
 #progressbar li:before {
-   width: 50px;
-   height: 50px;
-   line-height: 45px;
+   width: 0;
+   height: 0;
+   line-height: 40px;
    display: block;
-   font-size: 18px;
+   font-size: 10px;
    color: #ffffff;
    background: lightgray;
    border-radius: 50%;
-   margin: 0 auto 10px auto;
-   padding: 2px
+   margin: 0 auto 0 auto;
+   padding: 0.05px;
 }
 
 #progressbar li:after {
    content: '';
    width: 100%;
-   height: 2px;
+   height: 15px;
    background: lightgray;
    position: absolute;
    left: 0;
-   top: 25px;
-   z-index: -1
+   top: 0;
+   z-index: -1;
+   transition: all 2s ease;
 }
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-   background: rgb(44, 44, 44)
+   box-shadow: inset 100px 0 0 0 #444444;
 }
 
 .radio-group {

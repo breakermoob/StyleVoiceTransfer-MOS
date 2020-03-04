@@ -48,14 +48,30 @@
                la peor y 5 la mejor calificación.</p>
             <div class="row">
                <div class="col-md-12 mx-0">
+
                   <form id="msform" class="text-center">
                      <!-- progressbar -->
                      <ul id="progressbar" class="form-card">
-                        <li class="active" id="audio"><strong>Audio 1</strong></li>
-                        <li id="audio"><strong>Audio 2</strong></li>
-                        <li id="audio"><strong>Audio 3</strong></li>
-                        <li id="confirm"><strong>Enviar</strong></li>
-                     </ul> <!-- fieldsets -->
+                        <li class="active" id="audio"><strong></strong>.</li>
+                        <li id="audio" *ngFor="let survey of surveys; let i = index"><strong></strong></li>
+                        <li id="confirm"><strong>.</strong></li>
+                     </ul>
+
+
+                     <!-- fieldsets -->
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Explicación</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Contenido de la explicación</h5>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset()"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Comenzar
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
                      <fieldset>
                         <div class="form-card pl-2 pr-2">
                            <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
@@ -64,7 +80,7 @@
                                  <h5 class="fs-subtitle text-center">Original</h5>
                                  <div class="audio-container">
                                     <audio controls>
-                                       <source src="/assets/original_1.wav" type="audio/mpeg">
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
                                        Your browser does not support the audio element.
                                     </audio>
                                  </div>
@@ -73,7 +89,7 @@
                                  <h5 class="fs-subtitle text-center">Estilo</h5>
                                  <div class="audio-container">
                                     <audio controls>
-                                       <source src="/assets/estilo_1.wav" type="audio/mpeg">
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
                                        Your browser does not support the audio element.
                                     </audio>
                                  </div>
@@ -120,20 +136,41 @@
                                     </label>
                                  </div>
                               </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
                            </div>
                         </div>
-                        <button type="button" class="next action-button btn btn-outline-dark  pt-2 pb-2">Siguiente
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
                            &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
                      </fieldset>
                      <fieldset>
                         <div class="form-card pl-2 pr-2">
-                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #2</h2>
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
                            <div class="row justify-content-center">
                               <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
                                  <h5 class="fs-subtitle text-center">Original</h5>
                                  <div class="audio-container">
                                     <audio controls>
-                                       <source src="/assets/original_1.wav" type="audio/mpeg">
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
                                        Your browser does not support the audio element.
                                     </audio>
                                  </div>
@@ -142,7 +179,7 @@
                                  <h5 class="fs-subtitle text-center">Estilo</h5>
                                  <div class="audio-container">
                                     <audio controls>
-                                       <source src="/assets/estilo_1.wav" type="audio/mpeg">
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
                                        Your browser does not support the audio element.
                                     </audio>
                                  </div>
@@ -189,20 +226,41 @@
                                     </label>
                                  </div>
                               </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
                            </div>
                         </div>
-                        <button type="button" class="next action-button btn btn-outline-dark  pt-2 pb-2">Siguiente
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
                            &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
                      </fieldset>
                      <fieldset>
                         <div class="form-card pl-2 pr-2">
-                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #3</h2>
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
                            <div class="row justify-content-center">
                               <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
                                  <h5 class="fs-subtitle text-center">Original</h5>
                                  <div class="audio-container">
                                     <audio controls>
-                                       <source src="/assets/original_1.wav" type="audio/mpeg">
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
                                        Your browser does not support the audio element.
                                     </audio>
                                  </div>
@@ -211,7 +269,7 @@
                                  <h5 class="fs-subtitle text-center">Estilo</h5>
                                  <div class="audio-container">
                                     <audio controls>
-                                       <source src="/assets/estilo_1.wav" type="audio/mpeg">
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
                                        Your browser does not support the audio element.
                                     </audio>
                                  </div>
@@ -258,11 +316,1388 @@
                                     </label>
                                  </div>
                               </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
                            </div>
                         </div>
-                        <button type="button" class="next action-button btn btn-outline-dark pt-2 pb-2">Siguiente &nbsp;
-                           <i class="fa fa-arrow-right fa-md"></i></button>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
                      </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+                     <fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset($event)"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+<fieldset>
+                        <div class="form-card pl-2 pr-2">
+                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Transferencia de estilo #1</h2>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Original</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{outputs[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center">Estilo</h5>
+                                 <div class="audio-container">
+                                    <audio controls>
+                                       <source src="{{styles[0]}}" type="audio/mpeg">
+                                       Your browser does not support the audio element.
+                                    </audio>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row justify-content-center">
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Similitud</h5>
+                                 <div class="rating text-center" id="rating-s">
+                                    <label>
+                                       <input type="radio" name="rating-s" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-s" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Naturalidad</h5>
+                                 <div class="rating text-center" id="rating-n">
+                                    <label>
+                                       <input type="radio" name="rating-n" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-n" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4">
+                                 <h5 class="fs-subtitle text-center pb-2">Natividad</h5>
+                                 <div class="rating text-center" id="rating-na">
+                                    <label>
+                                       <input type="radio" name="rating-na" value="5" title="5 stars"> 5
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="4" title="4 stars"> 4
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="3" title="3 stars"> 3
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="2" title="2 stars"> 2
+                                    </label>
+                                    <label>
+                                       <input type="radio" name="rating-na" value="1" title="1 star"> 1
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="nextFieldset()"
+                           class="action-button btn btn-outline-dark next pt-2 pb-2">Siguiente
+                           &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
+                     </fieldset>
+
+
+
+
+
+                     <!-- Final fielset -->
                      <fieldset>
                         <div class="form-card">
                            <div class="row justify-content-center">
