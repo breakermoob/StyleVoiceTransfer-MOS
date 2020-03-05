@@ -11,8 +11,31 @@ declare var $: any;
 export class MosComponent implements OnInit {
 
   surveys: any;
-  styles:string[] = [
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
+  similarityRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  naturalnessRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  nativityRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  count: number = 0;
+  styles: string[] = [
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+  ]
+  outputs: string[] = [
     "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
     "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
     "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
@@ -32,29 +55,8 @@ export class MosComponent implements OnInit {
     "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
     "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
   ]
-  outputs:string[] = [
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-  ]
-    
-  constructor(private surveyService: ApiMosService) {}
+
+  constructor(private surveyService: ApiMosService) { }
 
   ngOnInit() {
 
@@ -62,71 +64,68 @@ export class MosComponent implements OnInit {
       if (res) {
         this.surveys = await res;
         for (let i = 0; i < res.length; i++) {
-          this.styles[i]= "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav";
+          this.styles[i] = "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav";
         }
-        console.log(this.styles);
       }
     }, error => {
       console.log(error);
     });
-
-    $('#rating-s input').change(function () {
-      var $radio = $(this);
-      $('#rating-s .selected').removeClass('selected');
-      $radio.closest('label').addClass('selected');
-    });
-    $('#rating-n input').change(function () {
-      var $radio = $(this);
-      $('#rating-n .selected').removeClass('selected');
-      $radio.closest('label').addClass('selected');
-    });
-    $('#rating-na input').change(function () {
-      var $radio = $(this);
-      $('#rating-na .selected').removeClass('selected');
-      $radio.closest('label').addClass('selected');
-    });
-
-    var current_fs, next_fs; //fieldsets
-    var opacity;
-
-    $(".next").click(function () {
-
-      current_fs = $(this).parent();
-      next_fs = $(this).parent().next();
-
-      //Add Class Active
-      $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-      //show the next fieldset
-      next_fs.show();
-      //hide the current fieldset with style
-      current_fs.animate({ opacity: 0 }, {
-        step: function (now) {
-          // for making fielset appear animation
-          opacity = 1 - now;
-
-          current_fs.css({
-            'display': 'none',
-            'position': 'relative'
-          });
-          next_fs.css({ 'opacity': opacity });
-        },
-        duration: 600
-      });
-    });
-
-
-    $('.radio-group .radio').click(function () {
-      $(this).parent().find('.radio').removeClass('selected');
-      $(this).addClass('selected');
-    });
-
-    $(".submit").click(function () {
-      return false;
-    })
-
   }
 
+  nextItem(event) {
+    var current_fs, next_fs;
+    var opacity;
 
+    current_fs = $(event.currentTarget).parent();
+    next_fs = $(event.currentTarget).parent().next();
 
+    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+    next_fs.show();
+
+    current_fs.animate({ opacity: 0 }, {
+      step: function (now) {
+
+        opacity = 1 - now;
+
+        current_fs.css({
+          'display': 'none',
+          'position': 'relative'
+        });
+        next_fs.css({ 'opacity': opacity });
+      },
+      duration: 600
+    });
+
+    this.count++;
+    if (this.count===19) {
+      //Aqui ejecutaremos el post
+      console.log(this.similarityRes);
+      console.log(this.naturalnessRes);
+      console.log(this.nativityRes);
+    }
+  
+  }
+
+  similarity(event,value){
+    this.similarityRes[this.count-1]=value;
+    var radio = $(event.currentTarget);
+    radio.removeClass('selected');
+    $('#similarity .selected').removeClass('selected');
+    radio.addClass('selected');
+  }
+  nativity(event,value){
+    this.nativityRes[this.count-1]=value;
+    var radio = $(event.currentTarget);
+    radio.removeClass('selected');
+    $('#nativity .selected').removeClass('selected');
+    radio.addClass('selected');
+  }
+  naturalness(event,value){
+    this.naturalnessRes[this.count-1]=value;
+    var radio = $(event.currentTarget);
+    radio.removeClass('selected');
+    $('#naturalness .selected').removeClass('selected');
+    radio.addClass('selected');
+  }
 }
