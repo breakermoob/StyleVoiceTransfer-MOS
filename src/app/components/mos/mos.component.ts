@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiMosService } from 'src/app/services/api/api-mos.service';
+import { Utterance } from '../../model/utterance'
 
 declare var $: any;
 
@@ -11,6 +12,7 @@ declare var $: any;
 export class MosComponent implements OnInit {
 
   surveys: any;
+  utterance = new Utterance();
   similarityRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   naturalnessRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   nativityRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -36,24 +38,24 @@ export class MosComponent implements OnInit {
     "/assets/12345.wav",
   ]
   outputs: string[] = [
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
-    "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
+    "/assets/12345.wav",
   ]
 
   constructor(private surveyService: ApiMosService) { }
@@ -64,7 +66,8 @@ export class MosComponent implements OnInit {
       if (res) {
         this.surveys = await res;
         for (let i = 0; i < res.length; i++) {
-          this.styles[i] = "https://voice-style-transfer.s3.amazonaws.com/CHOU_PLUS_3_SPANISH/Leon_Arango_3_to_t0.wav";
+          this.outputs[i] = res[i].output[0].url;
+          this.styles[i] = res[i].style[0].url;
         }
       }
     }, error => {
@@ -100,9 +103,16 @@ export class MosComponent implements OnInit {
     this.count++;
     if (this.count===19) {
       //Aqui ejecutaremos el post
-      console.log(this.similarityRes);
-      console.log(this.naturalnessRes);
-      console.log(this.nativityRes);
+      for (let i = 0; i < this.surveys.length; i++) {
+        this.utterance.nativeness = this.nativityRes[i];
+        this.utterance.similarity = this.similarityRes[i];
+        this.utterance.naturalness = this.naturalnessRes[i];
+        this.utterance.utteranceID = this.surveys[i].id;
+        this.surveyService.saveSurvey(this.utterance).subscribe(res=>{
+          console.log(res)
+        })
+        
+      }
     }
   
   }

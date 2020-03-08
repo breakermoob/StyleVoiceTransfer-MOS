@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -18,6 +18,14 @@ export class ApiMosService {
         let scripts: any = res;
         console.log(scripts)
         return scripts;
+      }));
+  }
+  saveSurvey(data: any) {
+    const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+    return this.http.post(`${this.URL}/score`, data, config)
+      .pipe(map(res => {
+        //Procesar la respuesta 
+        return res;
       }));
   }
 }
