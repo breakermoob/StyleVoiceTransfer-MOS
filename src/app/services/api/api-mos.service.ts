@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiMosService {
 
-  URL = 'http://integrador-vst-survey-backend.herokuapp.com/api/v1';
+  URL = 'https://integrador-vst-survey-backend.herokuapp.com/api/v1';
 
   constructor(private http: HttpClient) { }
 
