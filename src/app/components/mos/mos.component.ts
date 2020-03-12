@@ -12,10 +12,13 @@ declare var $: any;
 export class MosComponent implements OnInit {
 
   surveys: any;
+  loading: boolean;
+  loadingButton: boolean;
   utterance = new Utterance();
   similarityRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   naturalnessRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   nativityRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  intelligibilityRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   count: number = 0;
   styles: string[] = [
     "/assets/12345.wav",
@@ -58,7 +61,10 @@ export class MosComponent implements OnInit {
     "/assets/12345.wav",
   ]
 
-  constructor(private surveyService: ApiMosService) { }
+  constructor(private surveyService: ApiMosService) {
+    this.loading = true;
+    this.loadingButton = false;
+   }
 
   ngOnInit() {
 
@@ -69,6 +75,8 @@ export class MosComponent implements OnInit {
           this.outputs[i] = res[i].output[0].url;
           this.styles[i] = res[i].style[0].url;
         }
+        this.loading = false;
+        this.loadingButton = true;
       }
     }, error => {
       console.log(error);
@@ -107,6 +115,7 @@ export class MosComponent implements OnInit {
         this.utterance.nativeness = this.nativityRes[i];
         this.utterance.similarity = this.similarityRes[i];
         this.utterance.naturalness = this.naturalnessRes[i];
+        this.utterance.intelligibility = this.intelligibilityRes[i];
         this.utterance.utteranceID = this.surveys[i].id;
         this.surveyService.saveSurvey(this.utterance).subscribe(res=>{
           console.log(res)
@@ -136,6 +145,13 @@ export class MosComponent implements OnInit {
     var radio = $(event.currentTarget);
     radio.removeClass('selected');
     $('#naturalness .selected').removeClass('selected');
+    radio.addClass('selected');
+  }
+  intelligibility(event,value){
+    this.intelligibilityRes[this.count-1]=value;
+    var radio = $(event.currentTarget);
+    radio.removeClass('selected');
+    $('#intelligibility .selected').removeClass('selected');
     radio.addClass('selected');
   }
 }

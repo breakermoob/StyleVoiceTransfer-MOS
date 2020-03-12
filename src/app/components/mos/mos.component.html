@@ -34,18 +34,482 @@
 </div>
 <br>
 <br>
+<div class="container-fluid bg-color pt-4 pb-4">
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-sm-12 col-md-12 col-lg-12 pt-4">
+            <h2 class="fs-title text-center">Niveles de Calificación</h2>
+            <p class="text-justify">Tenemos seis niveles de calificación, donde el cinco es la mejor y cero es
+               la peor, después de marcar una opción es posible cambiarla, pero solo entre uno y cinco.</p>
+         </div>
+         <div class="container">
+            <div class="row justify-content-center">
+               <div class="col-sm-6 col-md-4 col-lg-4 pt-4 text-center">
+                  <h5 class="fs-subtitle">Excelente</h5>
+                  <div class="btn-group rating-static" data-toggle="buttons">
+                     <label class="selected">
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-md-4 col-lg-4 pt-4 text-center">
+                  <h5 class="fs-subtitle">Muy Bueno</h5>
+                  <div class="btn-group rating-static" data-toggle="buttons">
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label class="selected">
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-md-4 col-lg-4 pt-4 text-center">
+                  <h5 class="fs-subtitle">Bueno</h5>
+                  <div class="btn-group rating-static" data-toggle="buttons">
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label class="selected">
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-md-4 col-lg-4 pt-4 text-center">
+                  <h5 class="fs-subtitle">Regular</h5>
+                  <div class="btn-group rating-static" data-toggle="buttons">
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label class="selected">
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-md-4 col-lg-4 pt-4 text-center">
+                  <h5 class="fs-subtitle">Malo</h5>
+                  <div class="btn-group rating-static" data-toggle="buttons">
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label class="selected">
+                        <input type="radio">
+                     </label>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-md-4 col-lg-4 pt-4 text-center">
+                  <h5 class="fs-subtitle">Muy Malo</h5>
+                  <div class="btn-group rating-static" data-toggle="buttons">
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                     <label>
+                        <input type="radio">
+                     </label>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+   <br>
+</div>
+<div class="container pt-4 pb-4">
+   <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 pt-4">
+         <h2 class="fs-title text-center">Ejemplos de Evaluaciones</h2>
+         <p class="text-justify">Presentamos unos ejemplos, el los cuales podemos evidenciar cómo sería una buena o
+            mala: similitud,
+            naturalidad, natividad e inteligibilidad, clasificándolas de 0 a 5 según nuestro criterio. En estos ejemplos
+            tendremos tres audio, el original, el estilo con una buena evaluación y el estilo con una mala evaluación</p>
+      </div>
+   </div>
+</div>
 <br>
-<br>
-<br>
+
+<!-- Similitud -->
+<div class="container-fluid bg-color">
+   <div class="container pt-4 pb-4">
+      <div class="row justify-content-center">
+         <div class="col-sm-12 col-md-12 col-lg-12 pt-4">
+            <h2 class="fs-title text-center">Similitud</h2>
+            <p class="text-center">Esta métrica nos permite identificar la relación entre dos audios.</p>
+         </div>
+         <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
+            <h5 class="fs-subtitle text-center">Original</h5>
+            <div class="audio-container">
+               <audio controls>
+                  <source src="{{outputs[i]}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+            <br>
+         </div>
+         <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
+            <h5 class="fs-subtitle text-center">Estilo 1</h5>
+            <div class="audio-container">
+               <audio controls>
+                  <source src="{{outputs[i]}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+            <br>
+            <div class="btn-group rating-static" data-toggle="buttons">
+               <label class="selected">
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+            </div>
+         </div>
+         <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
+            <h5 class="fs-subtitle text-center">Estilo 2</h5>
+            <div class="audio-container">
+               <audio controls>
+                  <source src="{{outputs[i]}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+            <br>
+            <div class="btn-group rating-static" data-toggle="buttons">
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label class="selected">
+                  <input type="radio">
+               </label>
+            </div>
+         </div>
+      </div>
+   </div>
+   <br>
+</div>
+<!-- END Similitud -->
+
+<!-- Naturalidad -->
+<div class="container-fluid">
+   <div class="container pt-4 pb-4">
+      <div class="row justify-content-center">
+
+         <div class="col-sm-12 col-md-12 col-lg-12 pt-4">
+            <h2 class="fs-title text-center">Naturalidad</h2>
+            <p class="text-center">Esta métrica nos permite determinar si el audio suena muy sintético con respecto al
+               original.</p>
+         </div>
+
+         <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
+            <h5 class="fs-subtitle text-center">Original</h5>
+            <div class="audio-container">
+               <audio controls>
+                  <source src="{{outputs[i]}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+            <br>
+         </div>
+         <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
+            <h5 class="fs-subtitle text-center">Estilo 1</h5>
+            <div class="audio-container">
+               <audio controls>
+                  <source src="{{outputs[i]}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+            <br>
+            <div class="btn-group rating-static" data-toggle="buttons">
+               <label class="selected">
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+            </div>
+         </div>
+         <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
+            <h5 class="fs-subtitle text-center">Estilo 2</h5>
+            <div class="audio-container">
+               <audio controls>
+                  <source src="{{outputs[i]}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+            <br>
+            <div class="btn-group rating-static" data-toggle="buttons">
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label class="selected">
+                  <input type="radio">
+               </label>
+            </div>
+         </div>
+      </div>
+   </div>
+   <br>
+</div>
+<!-- END Naturalidad -->
+
+<!-- Natividad -->
+<div class="container-fluid bg-color">
+   <div class="container pt-4 pb-4">
+      <div class="row justify-content-center">
+         <div class="col-sm-12 col-md-12 col-lg-12 pt-4">
+            <h2 class="fs-title text-center">Natividad</h2>
+            <p class="text-center">Esta métrica nos permite evaluar la relación que tiene el estilo procesado con la voz
+               de un
+               hablante nativo.</p>
+         </div>
+
+         <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
+            <h5 class="fs-subtitle text-center">Original</h5>
+            <div class="audio-container">
+               <audio controls>
+                  <source src="{{outputs[i]}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+            <br>
+         </div>
+         <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
+            <h5 class="fs-subtitle text-center">Estilo 1</h5>
+            <div class="audio-container">
+               <audio controls>
+                  <source src="{{outputs[i]}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+            <br>
+            <div class="btn-group rating-static" data-toggle="buttons">
+               <label class="selected">
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+            </div>
+         </div>
+         <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
+            <h5 class="fs-subtitle text-center">Estilo 2</h5>
+            <div class="audio-container">
+               <audio controls>
+                  <source src="{{outputs[i]}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+            <br>
+            <div class="btn-group rating-static" data-toggle="buttons">
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label class="selected">
+                  <input type="radio">
+               </label>
+            </div>
+         </div>
+      </div>
+   </div>
+   <br>
+</div>
+<!-- END Natividad -->
+
+<!-- Inteligibilidad -->
+<div class="container-fluid">
+   <div class="container pt-4 pb-4">
+      <div class="row justify-content-center">
+         <div class="col-sm-12 col-md-12 col-lg-12 pt-4">
+            <h2 class="fs-title text-center">Inteligibilidad</h2>
+            <p class="text-center">Esta métrica nos permite saber si se entiende el contenido de un audio y que tan
+               bueno fue el procesado.</p>
+         </div>
+         <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
+            <h5 class="fs-subtitle text-center">Original</h5>
+            <div class="audio-container">
+               <audio controls>
+                  <source src="{{outputs[i]}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+            <br>
+         </div>
+         <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
+            <h5 class="fs-subtitle text-center">Estilo 1</h5>
+            <div class="audio-container">
+               <audio controls>
+                  <source src="{{outputs[i]}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+            <br>
+            <div class="btn-group rating-static" data-toggle="buttons">
+               <label class="selected">
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+            </div>
+         </div>
+         <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
+            <h5 class="fs-subtitle text-center">Estilo 2</h5>
+            <div class="audio-container">
+               <audio controls>
+                  <source src="{{outputs[i]}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
+            </div>
+            <br>
+            <div class="btn-group rating-static" data-toggle="buttons">
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label>
+                  <input type="radio">
+               </label>
+               <label class="selected">
+                  <input type="radio">
+               </label>
+            </div>
+         </div>
+      </div>
+   </div>
+   <br>
+</div>
+<!-- END Inteligibilidad -->
+
+
 <!-- MultiStep Form -->
 <div class="container-fluid div-gradient">
    <div class="row justify-content-center mt-0">
       <div class="col-11 col-sm-11 col-md-10 col-lg-8 text-center p-0 mt-4 mb-4 p-4">
          <div class="card px-0 pt-4 pb-0 mt-4 mb-4 border">
             <h2 class="pl-4 pr-4"><strong>Tu opinión es muy valiosa para nosotros</strong></h2>
-            <p class="pl-4 pr-4">Califica los audios de 1-5 según que tanta similitud tengo o con cuanta naturalidad se
-               escuchan, siendo 1
-               la peor y 5 la mejor calificación.</p>
             <div class="row">
                <div class="col-md-12 mx-0">
 
@@ -61,14 +525,25 @@
                      <!-- fieldsets -->
                      <fieldset>
                         <div class="form-card pl-2 pr-2">
-                           <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Explicación</h2>
                            <div class="row justify-content-center">
-                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4">
-                                 <h5 class="fs-subtitle text-center">Contenido de la explicación</h5>
+                              <div class="col-sm-12 col-md-12 col-lg-10 pt-4">
+                                 <h2 class="fs-title pb-2 pl-3 pr-3 text-center">Antes de comenzar recuerda que:</h2>
+                                 <ul>
+                                    <li class="fs-subtitle">Son 18 secciones a evaluar, cada una cuenta con 2 audios de
+                                       máximo 10 segundos.</li>
+                                    <li class="fs-subtitle">No hay tiempo límite, pero se estima que puede tardar unos
+                                       10 minutos.</li>
+                                    <li class="fs-subtitle">Es importante realizar la evaluación con audífonos, ya que
+                                       el uso estos permite escuchar mejor los audios.</li>
+                                 </ul>
                               </div>
                            </div>
                         </div>
-                        <button type="button" (click)="nextItem($event)"
+                        <div class="loading" *ngIf="loading">
+                           <h4 class="fs-subtitle">Cargando...</h4>
+                           <img src="/assets/loading.gif" alt="loading" width="15%">
+                        </div>
+                        <button type="button" *ngIf="loadingButton" (click)="nextItem($event)"
                            class="action-button btn btn-outline-dark next pt-2 pb-2">Comenzar
                            &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
                      </fieldset>
@@ -99,7 +574,7 @@
                               <div class="col-sm-12 col-md-6 col-lg-4 pt-4 text-center">
                                  <h5 class="fs-subtitle pb-2">Similitud</h5>
                                  <div class="btn-group rating" id="similarity" data-toggle="buttons">
-                                    <label  (click)="similarity($event,5)">
+                                    <label (click)="similarity($event,5)">
                                        <input type="radio">
                                     </label>
                                     <label (click)="similarity($event,4)">
@@ -119,7 +594,7 @@
                               <div class="col-sm-12 col-md-6 col-lg-4 pt-4 text-center">
                                  <h5 class="fs-subtitle pb-2">Naturalidad</h5>
                                  <div class="btn-group rating" id="naturalness" data-toggle="buttons">
-                                    <label  (click)="naturalness($event,5)">
+                                    <label (click)="naturalness($event,5)">
                                        <input type="radio">
                                     </label>
                                     <label (click)="naturalness($event,4)">
@@ -136,10 +611,31 @@
                                     </label>
                                  </div>
                               </div>
-                              <div class="col-sm-12 col-md-12 col-lg-4 pt-4 text-center">
+                              <div class="col-12 pt-4 text-center"></div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4 text-center">
+                                 <h5 class="fs-subtitle pb-2">Intelligibility</h5>
+                                 <div class="btn-group rating" id="intelligibility" data-toggle="buttons">
+                                    <label (click)="intelligibility($event,5)">
+                                       <input type="radio">
+                                    </label>
+                                    <label (click)="intelligibility($event,4)">
+                                       <input type="radio">
+                                    </label>
+                                    <label (click)="intelligibility($event,3)">
+                                       <input type="radio">
+                                    </label>
+                                    <label (click)="intelligibility($event,2)">
+                                       <input type="radio">
+                                    </label>
+                                    <label (click)="intelligibility($event,1)">
+                                       <input type="radio">
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 pt-4 text-center">
                                  <h5 class="fs-subtitle pb-2">Natividad</h5>
                                  <div class="btn-group rating" id="nativity" data-toggle="buttons">
-                                    <label  (click)="nativity($event,5)">
+                                    <label (click)="nativity($event,5)">
                                        <input type="radio">
                                     </label>
                                     <label (click)="nativity($event,4)">
