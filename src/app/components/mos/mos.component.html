@@ -36,6 +36,55 @@
 <br>
 <div class="container-fluid bg-color pt-4 pb-4">
    <div class="container">
+      <div class="row">
+         <div class="col-12">
+            <h2 class="fs-title text-center">Descripción del Proyecto</h2>
+            <p class="text-justify text-dark regular pt-4 mt-2">
+               Dentro de las aplicaciones actuales de la inteligencia artificial y específicamente del Deep Learning,
+               están
+               las relacionadas con el procesamiento de voz como por el ejemplo los sistemas de reconocimiento de voz o
+               reconocimiento de emociones en la voz. Adicionalmente, las arquitecturas actuales de deep learning han
+               abierto una línea interesante de trabajo conocida como transferencia de estilo, la cual ha sido usada
+               principalmente para la creación de pinturas que combinan una imagen cualquiera, con el estilo de artistas
+               reconocidos como por ejemplo Vincent van Gogh. Sin embargo, recientemente se han propuesto diferentes
+               aproximaciones que permiten hacer transferencia de estilo en señales de voz, combinando el mensaje dicho
+               por
+               una persona, con el timbre y la entonación de otra. Esta línea de trabajo tiene aplicaciones para el
+               diseño
+               de sistemas de síntesis de voz, específicamente conocidos como sistema de texto a voz personalizados,
+               cuyo
+               uso potencial puede ser el desarrollo de sistemas de entretenimiento, traducción de lenguaje hablado, o
+               para
+               la asistencia de personas que han perdido su capacidad de emitir sonidos de voz por causas de enfermedad.
+               La
+               mayoría de las aproximaciones encontradas en el estado del arte han sido desarrolladas para el idioma
+               inglés, por lo que este proyecto integrador busca desarrollar un sistema que capture una nota de voz de
+               una
+               persona y transferir su voz a la de un personaje específico en la que ambas personas sean hablantes de
+               idioma español, tomando como base un trabajo recientemente publicado en el campo.
+            </p>
+         </div>
+      </div>
+   </div>
+</div>
+<br>
+<br>
+<div class="container">
+   <div class="row">
+      <div class="col-12">
+         <h2 class="fs-title text-center">Objetivo de la Prueba</h2>
+         <p class="text-justify text-dark regular pt-4 mt-2">
+            Evaluar las transferencia de estilo en señales de voz, que combinan el mensaje
+            dicho por una persona, con el timbre y la entonación de otra, las cuales se realizaron mediante la
+            implementación de técnicas de Aprendizaje Profundo.
+         </p>
+      </div>
+   </div>
+</div>
+<br>
+<br>
+<div class="container-fluid bg-color pt-4 pb-4">
+   <div class="container">
       <div class="row justify-content-center">
          <div class="col-sm-12 col-md-12 col-lg-12 pt-4">
             <h2 class="fs-title text-center">Niveles de Calificación</h2>
@@ -349,10 +398,9 @@
    <div class="container pt-4 pb-4">
       <div class="row justify-content-center">
          <div class="col-sm-12 col-md-12 col-lg-12 pt-4">
-            <h2 class="fs-title text-center">Natividad</h2>
+            <h2 class="fs-title text-center">¿Qué tan nativo suena el audio?</h2>
             <p class="text-center">Esta métrica nos permite evaluar la relación que tiene el estilo procesado con la voz
-               de un
-               hablante nativo.</p>
+               de un hablante nativo.</p>
          </div>
 
          <div class="col-sm-12 col-md-4 col-lg-4 pt-4 text-center">
@@ -614,7 +662,7 @@
                               </div>
                               <div class="col-12 pt-4 text-center"></div>
                               <div class="col-sm-12 col-md-6 col-lg-4 pt-4 text-center">
-                                 <h5 class="fs-subtitle pb-2">Intelligibility</h5>
+                                 <h5 class="fs-subtitle pb-2">Inteligibilidad</h5>
                                  <div class="btn-group rating" id="intelligibility" data-toggle="buttons">
                                     <label (click)="intelligibility($event,5)">
                                        <input type="radio">
@@ -634,7 +682,7 @@
                                  </div>
                               </div>
                               <div class="col-sm-12 col-md-6 col-lg-4 pt-4 text-center">
-                                 <h5 class="fs-subtitle pb-2">Natividad</h5>
+                                 <h5 class="fs-subtitle pb-2">¿Qué tan nativo suena?</h5>
                                  <div class="btn-group rating" id="nativity" data-toggle="buttons">
                                     <label (click)="nativity($event,5)">
                                        <input type="radio">
@@ -655,7 +703,7 @@
                               </div>
                            </div>
                         </div>
-                        <button type="button" id="final" (click)="nextItem($event)"
+                        <button type="button" (click)="nextItem($event)"
                            class="action-button next btn btn-outline-dark pt-2 pb-2">Siguiente
                            &nbsp; <i class="fa fa-arrow-right fa-md"></i></button>
                      </fieldset>

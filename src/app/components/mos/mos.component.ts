@@ -117,6 +117,7 @@ export class MosComponent implements OnInit {
         this.utterance.naturalness = this.naturalnessRes[i];
         this.utterance.intelligibility = this.intelligibilityRes[i];
         this.utterance.utteranceID = this.surveys[i].id;
+        console.log(this.utterance)
         this.surveyService.saveSurvey(this.utterance).subscribe(res=>{
           console.log(res)
         })
