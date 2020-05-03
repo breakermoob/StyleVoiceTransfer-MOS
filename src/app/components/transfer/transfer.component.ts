@@ -10,12 +10,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class TransferComponent implements OnInit {
 
 
-  private record;
-  private recording = false;
-  private url;
-  private error;
+  public record;
+  public recording = false;
+  public url;
+  public error;
   public modelResponse;
-  private styleId;
+  public styleId;
 
   constructor(private domSanitizer: DomSanitizer) {
   }
