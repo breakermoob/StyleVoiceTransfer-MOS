@@ -8,15 +8,6 @@
    animation: SetGradient 20s ease infinite;
 
 }
- 
-.div-height{
-   height: 40vh;
-   font-size: 2em;
-}
-
-.bg-color{
-   background-color: rgb(240, 240, 240);
-}
 
 
 .form-card {
@@ -131,18 +122,6 @@ select.list-dt:focus {
    border: none;
    border-radius: 0.5rem;
    position: relative
-}
-
-.fs-title {
-   font-size: 25px;
-   color: #2C3E50;
-   margin-bottom: 10px;
-   font-weight: bold;
-   text-align: left
-}
-.fs-subtitle {
-   color: #2C3E50;
-   font-weight: bold;
 }
 
 #progressbar {

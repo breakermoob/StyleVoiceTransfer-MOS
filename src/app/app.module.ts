@@ -9,6 +9,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MosComponent } from './components/mos/mos.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TransferComponent } from './components/transfer/transfer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './components/footer/footer.component';
     SidebarComponent,
     HomeComponent,
     MosComponent,
-    FooterComponent
+    FooterComponent,
+    TransferComponent
   ],
   imports: [
     BrowserModule,

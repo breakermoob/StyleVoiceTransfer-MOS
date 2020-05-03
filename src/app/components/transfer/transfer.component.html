@@ -1,0 +1,81 @@
+<div class="container-fluid">
+   <div class="row div-gradient div-height text-center">
+      <div class="col-12 my-auto">
+         <h1 class="text-white light">Style Voice Transfer</h1>
+         <h3 class="text-white light pt-2">Prueba del Modelo</h3>
+      </div>
+   </div>
+</div>
+<br>
+
+
+<div class="container-fluid pt-4 pb-4">
+   <div class="container">
+      <div class="row">
+         <div class="col-12">
+            <h2 class="fs-title text-center">Tansferencia de Estilo</h2>
+            <p class="text-justify text-dark regular pt-4 mt-2">
+               Prueba el modelo realizando una transferencia de estilo en 3 simples pasos:
+            </p>
+            <ul>
+               <li>Graba el contenido que desees</li>
+               <li>Selecciona el estilo de voz que quieras escuchar</li>
+               <li>Envíalo para que sea procesado y disfruta</li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+
+<div class="container-fluid text-center bg-color pt-4 pb-4">
+   <br>
+   <h2 class="fs-title text-center">Formato para la Conversión</h2>
+   <div class="row mt-4">
+      <div class="col">
+         <button type="button" (click)="initiateRecording()" class="btn btn-outline-dark btn-play" *ngIf="!recording"><i
+               class="fa fa-microphone fa-2x"></i></button>
+         <button type="button" (click)="stopRecording()" class="btn btn-danger btn-stop" *ngIf="recording"><i
+               class="fa fa-stop fa-2x"></i></button>
+      </div>
+   </div>
+   <div class="row mt-4">
+      <div class="col audio-div">
+         <div class="clearfix"></div>
+         <audio controls="" *ngIf="url">
+            <source [src]="sanitize(url)" type="audio/wav">
+         </audio>
+      </div>
+   </div>
+   <div class="row mt-4 mb-4">
+      <div class="col">
+         <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" (click)="setStyleId(1)" class="btn btn-outline-dark">Jose Arango</button>
+            <button type="button" (click)="setStyleId(2)" class="btn btn-outline-dark">Carlos Montoya</button>
+            <button type="button" (click)="setStyleId(3)" class="btn btn-outline-dark">Leon Arango</button>
+         </div>
+      </div>
+   </div>
+   <div class="row mt-4 mb-4">
+      <div class="col">
+         <button type="button" (click)="processAudio()" class="btn btn-dark">Procesar Audio</button>
+      </div>
+   </div>
+</div>
+<div class="container-fluid text-center pt-4 pb-4" *ngIf="modelResponse">
+   <div class="row">
+      <div class="col">
+         <h2 class="fs-title text-center">Resultado</h2>
+      </div>
+   </div>
+   <div class="row mt-4">
+      <div class="col audio-div">
+         <div class="clearfix"></div>
+         <audio controls="">
+            <source [src]="sanitize(modelResponse)" type="audio/wav">
+         </audio>
+      </div>
+   </div>
+</div>

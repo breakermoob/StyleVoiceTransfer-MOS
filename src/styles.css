@@ -17,6 +17,27 @@ body {
    background-color: transparent !important;
 }
 
+.fs-title {
+  font-size: 25px;
+  color: #2C3E50;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: left
+}
+.fs-subtitle {
+  color: #2C3E50;
+  font-weight: bold;
+}
+
+.div-height{
+  height: 40vh;
+  font-size: 2em;
+}
+
+.bg-color{
+  background-color: rgb(240, 240, 240);
+}
+
 @-webkit-keyframes SetGradient {
   0%{background-position:0% 47%}
   50%{background-position:100% 54%}
