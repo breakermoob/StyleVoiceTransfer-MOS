@@ -15,10 +15,10 @@ export class MosComponent implements OnInit {
   loading: boolean;
   loadingButton: boolean;
   utterance = new Utterance();
-  similarityRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  naturalnessRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  nativityRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  intelligibilityRes:number[]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  similarityRes:number[]=[0,0,0,0,0,0];
+  naturalnessRes:number[]=[0,0,0,0,0,0];
+  nativityRes:number[]=[0,0,0,0,0,0];
+  intelligibilityRes:number[]=[0,0,0,0,0,0];
   count: number = 0;
   styles: string[] = [
     "/assets/original.wav",
@@ -27,32 +27,8 @@ export class MosComponent implements OnInit {
     "/assets/original.wav",
     "/assets/original.wav",
     "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
   ]
   outputs: string[] = [
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
-    "/assets/original.wav",
     "/assets/original.wav",
     "/assets/original.wav",
     "/assets/original.wav",
@@ -109,7 +85,7 @@ export class MosComponent implements OnInit {
     });
 
     this.count++;
-    if (this.count===19) {
+    if (this.count===7) {
       //Aqui ejecutaremos el post
       for (let i = 0; i < this.surveys.length; i++) {
         this.utterance.nativeness = this.nativityRes[i];

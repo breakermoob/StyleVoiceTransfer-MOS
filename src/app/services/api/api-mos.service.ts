@@ -7,13 +7,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiMosService {
-
+  
   URL = 'https://integrador-vst-survey-backend.herokuapp.com/api/v1';
+
+  //Transfer Learning MOS
+  transferURL = 'http://integrador-vst-survey-backend.herokuapp.com/api/v1/survey/tl';
 
   constructor(private http: HttpClient) { }
 
   getSurvey(): Observable<any[]> {
-    return this.http.get(`${this.URL}/survey/random?n=18`)
+    // return this.http.get(`${this.URL}/survey/random?n=18`)
+    return this.http.get(this.transferURL)
       .pipe(map(res => {
         let scripts: any = res;
         console.log(scripts)

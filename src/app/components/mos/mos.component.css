@@ -137,7 +137,7 @@ select.list-dt:focus {
 #progressbar li {
    list-style-type: none;
    font-size: 12px;
-   width: 5%;
+   width: 12.5%;
    float: left;
    position: relative
 }
@@ -184,7 +184,7 @@ select.list-dt:focus {
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-   box-shadow: inset 100px 0 0 0 #444444;
+   box-shadow: inset 150px 0 0 0 #444444;
 }
 
 .radio-group {
