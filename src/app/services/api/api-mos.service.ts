@@ -11,7 +11,7 @@ export class ApiMosService {
   URL = 'https://integrador-vst-survey-backend.herokuapp.com/api/v1';
 
   //Transfer Learning MOS
-  transferURL = 'http://integrador-vst-survey-backend.herokuapp.com/api/v1/survey/tl';
+  transferURL = 'https://integrador-vst-survey-backend.herokuapp.com/api/v1/survey/tl';
 
   constructor(private http: HttpClient) { }
 
