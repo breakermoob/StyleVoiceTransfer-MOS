@@ -22,6 +22,42 @@
       </div>
    </div>
 </div>
+<div class="container">
+   <div class="row p-4">
+      <div class="col-12 mt-4 mb-0">
+         <h1 class="display-3 pt-2 pb-4 text-center">
+            Resumen
+         </h1>
+      </div>
+      <div class="col-12 mt-2 mb-2">
+         <p class="text-justify">
+            Dentro de las aplicaciones actuales de la inteligencia artificial y específicamente del Deep Learning, están
+            las
+            relacionadas con el procesamiento de voz como por el ejemplo los sistemas de reconocimiento de voz o
+            reconocimiento de emociones en la voz. Adicionalmente, las arquitecturas actuales de deep learning han
+            abierto una
+            línea interesante de trabajo conocida como transferencia de estilo, la cual ha sido usada principalmente
+            para la
+            creación de pinturas que combinan una imagen cualquiera, con el estilo de artistas reconocidos como por
+            ejemplo
+            Vincent van Gogh. Sin embargo, recientemente se han propuesto diferentes aproximaciones que permiten hacer
+            transferencia de estilo en señales de voz, combinando el mensaje dicho por una persona, con el timbre y la
+            entonación de otra. Esta línea de trabajo tiene aplicaciones para el diseño de sistemas de síntesis de voz,
+            específicamente conocidos como sistema de texto a voz personalizados, cuyo uso potencial puede ser el
+            desarrollo
+            de sistemas de entretenimiento, traducción de lenguaje hablado, o para la asistencia de personas que han
+            perdido
+            su capacidad de emitir sonidos de voz por causas de enfermedad. La mayoría de las aproximaciones encontradas
+            en el
+            estado del arte han sido desarrolladas para el idioma inglés, por lo que este proyecto integrador busca
+            desarrollar un sistema que capture una nota de voz de una persona y transferir su voz a la de un personaje
+            específico en la que ambas personas sean hablantes de idioma español, tomando como base un trabajo
+            recientemente
+            publicado en el campo.
+         </p>
+      </div>
+   </div>
+</div>
 <div class="bg-cards-section">
    <div class="container second pb-4">
       <div class="row div-second text-center p-4">
@@ -29,6 +65,22 @@
             <h1 class="display-3 pt-2 pb-4">
                Servicios
             </h1>
+         </div>
+         <div class="col-sm-12 col-md-4 p-4 my-auto">
+            <div class="card">
+               <div class="card-body">
+                  <i class="fa fa-microphone fa-3x"></i>
+                  <div class="title">
+                     <h4>Transferencia de Estilo</h4>
+                  </div>
+                  <div class="text">
+                     <h6 class="light">Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed.
+                        Elitr scripta
+                        ocurreret qui ad.</h6>
+                  </div>
+                  <a routerLink="/transfer" (click)="goUp()" class="btn btn-outline-dark">Entrar</a>
+               </div>
+            </div>
          </div>
          <div class="col-sm-12 col-md-4 p-4 my-auto">
             <div class="card">
@@ -62,27 +114,77 @@
                </div>
             </div>
          </div>
-         <div class="col-sm-12 col-md-4 p-4 my-auto">
-            <div class="card">
-               <div class="card-body">
-                  <i class="fa fa-microphone fa-3x"></i>
-                  <div class="title">
-                     <h4>Transferencia de Estilo</h4>
-                  </div>
-                  <div class="text">
-                     <h6 class="light">Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed.
-                        Elitr scripta
-                        ocurreret qui ad.</h6>
-                  </div>
-                  <a routerLink="/transfer" (click)="goUp()" class="btn btn-outline-dark">Entrar</a>
-               </div>
-            </div>
-         </div>
       </div>
    </div>
 </div>
-<div class="container ">
-   <div class="row div-height text-center">
-
+<div class="container">
+   <div class="row text-center p-4">
+      <div class="col-12 mt-4 mb-2">
+         <h1 class="display-3 pt-2 pb-4">
+            Integrantes
+         </h1>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-3 p-2">
+         <img src="assets/integrante-0.png" class="rounded-circle mb-4 mt-2" alt="">
+         <h3><strong>Leon Dario</strong></h3>
+         <h5>Arango Amaya</h5>
+         <h5 class="light ">Desarrollador</h5>
+         <a href="https://github.com/breakermoob" class="pl-2 pr-2" target="_blank">
+            <img src="assets/github.png" alt="[Github Img]" width="10%"></a>
+         <a href="https://www.linkedin.com/in/breakermoob/" class="pl-2 pr-2" target="_blank">
+            <img src="assets/linkedin.png" alt="[Linkedin Img]" width="10%"></a>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-3 p-2">
+         <img src="assets/integrante-1.png" class="rounded-circle mb-4 mt-2" alt="">
+         <h3><strong>Jose Alberto</strong></h3>
+         <h5>Arango Sánchez</h5>
+         <h5 class="light">Desarrollador</h5>
+         <a href="https://github.com/josearangos" class="pl-2 pr-2" target="_blank">
+            <img src="assets/github.png" alt="[Github Img]" width="10%"></a>
+         <a href="https://www.linkedin.com/in/jose-alberto-arango-sanchez-79a337142/" class="pl-2 pr-2" target="_blank">
+            <img src="assets/linkedin.png" alt="[Linkedin Img]" width="10%"></a>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-3 p-2">
+         <img src="assets/integrante-2.png" class="rounded-circle mb-4 mt-2" alt="">
+         <h3><strong>Carlos Daniel</strong></h3>
+         <h5>Montoya Hurtado</h5>
+         <h5 class="light">Desarrollador</h5>
+         <a href="https://github.com/cdanmontoya" class="pl-2 pr-2" target="_blank">
+            <img src="assets/github.png" alt="[Github Img]" width="10%"></a>
+         <a href="https://www.linkedin.com/in/cdanmontoya/" class="pl-2 pr-2" target="_blank">
+            <img src="assets/linkedin.png" alt="[Linkedin Img]" width="10%"></a>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-3 p-2">
+         <img src="assets/integrante-3.png" class="rounded-circle mb-4 mt-2" alt="">
+         <h3><strong>Julian David </strong></h3>
+         <h5>Arias Londoño</h5>
+         <h5 class="light">Docente Asesor</h5>
+         <a href="https://github.com/jdariasl" class="pl-2 pr-2" target="_blank">
+            <img src="assets/github.png" alt="[Github Img]" width="10%"></a>
+         <a href="https://www.linkedin.com/in/julian-david-arias-londo%C3%B1o-ph-d-17a75226/" class="pl-2 pr-2"
+            target="_blank">
+            <img src="assets/linkedin.png" alt="[Linkedin Img]" width="10%"></a>
+      </div>
+   </div>
+</div>
+<div class="bg-cards-section">
+   <div class="container">
+      <div class="row text-center p-4">
+         <div class="col-12 mt-4 mb-2">
+            <h1 class="display-3 pt-2 pb-4">
+               Colaboradores
+            </h1>
+         </div>
+         <div class="col-sm-12 col-md-6 col-lg-6 p-2">
+            <img src="assets/colaborador-0.png" class="rounded-circle mb-4 mt-2" alt="">
+            <h3><strong>Universidad de Antioquia</strong></h3>
+            <h5>Departamento Ingeniería de Sistemas</h5>
+         </div>
+         <div class="col-sm-12 col-md-6 col-lg-6 p-2">
+            <img src="assets/colaborador-1.png" class="rounded-circle mb-4 mt-2" alt="">
+            <h3><strong>In2Lab</strong></h3>
+            <h5>Intelligent Information System Lab</h5>
+         </div>
+      </div>
    </div>
 </div>

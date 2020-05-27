@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiMosService } from 'src/app/services/api/api-mos.service';
+import { ApiMosService } from 'src/app/services/mos/api-mos.service';
 import { Utterance } from '../../model/utterance'
 
 declare var $: any;
