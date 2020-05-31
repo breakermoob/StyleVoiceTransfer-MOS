@@ -8,26 +8,26 @@ import { Observable } from 'rxjs';
 })
 export class ApiModelService {
 
-  URL = 'https://rutax';
+  URL = 'http://35.231.122.36:8000';
 
 
   constructor(private http: HttpClient) { }
 
-  trasnferOnFire(data: any) {
+  trasnferOnFire(data) {
     const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-    return this.http.post(`${this.URL}/rutax`, data, config)
+    return this.http.post(`${this.URL}/convert/`, data)
       .pipe(map(res => {
         //Procesar la respuesta 
+        console.log(res)
         return res;
       }));
   }
 
-  // getSurvey(): Observable<any[]> {
-  //   return this.http.get(`${this.URL}/survey/random?n=18`)
-  //     .pipe(map(res => {
-  //       let scripts: any = res;
-  //       console.log(scripts)
-  //       return scripts;
-  //     }));
-  // }
+  healtCheck() {
+    return this.http.get(this.URL)
+      .subscribe(res => {
+        console.log(res)
+        return res;
+      });
+  }
 }

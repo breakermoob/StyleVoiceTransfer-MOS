@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as RecordRTC from 'recordrtc';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ApiModelService } from 'src/app/services/model/api-model.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-transfer',
@@ -16,8 +19,13 @@ export class TransferComponent implements OnInit {
   public error;
   public modelResponse;
   public styleId;
+  private stream: MediaStream;
+  form: FormGroup;
 
-  constructor(private domSanitizer: DomSanitizer) {
+
+
+  constructor(public fb: FormBuilder, private domSanitizer: DomSanitizer, private apiModel: ApiModelService) {
+    // this.apiModel.healtCheck();
   }
 
   sanitize(url: string) {
@@ -42,6 +50,7 @@ export class TransferComponent implements OnInit {
       mimeType: "audio/wav",
       numberOfAudioChannels: 1
     };
+    this.stream = stream;
     //Start Actuall Recording
     var StereoAudioRecorder = RecordRTC.StereoAudioRecorder;
     this.record = new StereoAudioRecorder(stream, options);
@@ -50,8 +59,13 @@ export class TransferComponent implements OnInit {
 
   stopRecording() {
     this.recording = false;
+    console.log(this.record)
     this.record.stop(this.processRecording.bind(this)); 
+    let stream = this.stream;
+    stream.getAudioTracks().forEach(track => track.stop());
   }
+
+
   /**
    * processRecording Do what ever you want with blob
    * @param  {any} blob Blog
@@ -63,23 +77,50 @@ export class TransferComponent implements OnInit {
   errorCallback(error) {
     this.error = 'Can not play audio in your browser';
   }
+  saveAsBlob(){
+    //abrir el blob
+    // window.open(this.url);
 
-  processAudio(){
+    //Descargar el blob con una etiqueta invisible machete :v
+    let a = document.createElement('a');
+        document.body.appendChild(a);
+        a.setAttribute('style', 'display: none');
+        a.href = this.url;
+        a.download = "audio";
+        a.click();
+        // window.URL.revokeObjectURL(this.url);
+        a.remove();
+  }
+
+  processAudio() {
     if ((this.url) && (this.styleId)) {
-      this.modelResponse = this.url
+      this.setModelResponse(this.url);
+      this.saveAsBlob();
+
+      const formData = new FormData();
+      formData.append('target_id', this.styleId);
+      formData.append('model_id', "0");
+      formData.append('content_file', this.url);
+
+      // this.apiModel.trasnferOnFire(formData).subscribe((res) => {
+      //   console.log(res)
+      // });
     } else {
       alert('Debes grabar una frase y seleccionar un estilo')
     }
   }
 
-  setStyleId(id){
+
+  setStyleId(id) {
     this.styleId = id;
-    console.log(id)
   }
-  setModelResponse(modelResponse){
-    this.modelResponse = modelResponse
-    console.log(this.modelResponse)
+
+  setModelResponse(modelResponse) {
+    this.modelResponse = modelResponse;
   }
+  // download() {
+  //   this.record.save('file.wav');
+  // }
 
   ngOnInit() {
   }
