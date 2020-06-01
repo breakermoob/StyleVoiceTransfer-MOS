@@ -8,19 +8,28 @@ import { Observable } from 'rxjs';
 })
 export class ApiModelService {
 
-  URL = 'http://35.231.122.36:8000';
+  URL = 'http://35.185.67.85:8000';
 
 
   constructor(private http: HttpClient) { }
 
   trasnferOnFire(data) {
-    const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-    return this.http.post(`${this.URL}/convert/`, data)
-      .pipe(map(res => {
-        //Procesar la respuesta 
-        console.log(res)
-        return res;
-      }));
+    // const config = { headers: new HttpHeaders().set('Accept', 'multipart/form-data') };
+    // return this.http.post(`${this.URL}/convert/`, data, config)
+    //   .subscribe(res => {
+    //     console.log(res)
+    //     return res;
+    //   });
+
+    this.http.post(this.URL + '/convert/', data).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    )
+    // .pipe(map(res => {
+    //   //Procesar la respuesta 
+    //   console.log(res)
+    //   return res;
+    // }));
   }
 
   healtCheck() {
