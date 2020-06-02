@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiModelService {
 
-  URL = 'http://35.231.122.36';
+  URL = 'http://35.185.67.85';
   PORT = '8000';
 
 
