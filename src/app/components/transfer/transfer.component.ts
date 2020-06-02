@@ -4,7 +4,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ApiModelService } from 'src/app/services/model/api-model.service';
 import { FormBuilder } from '@angular/forms';
 
-
 @Component({
   selector: 'app-transfer',
   templateUrl: './transfer.component.html',
@@ -19,14 +18,17 @@ export class TransferComponent implements OnInit {
   public url;
   public file;
   public error;
-  public modelResponse;
+  public target_url;
+  public content_url;
   public styleId;
   private stream: MediaStream;
+  public modelList;
+  firstTransfer = false;
 
 
 
   constructor(public fb: FormBuilder, private domSanitizer: DomSanitizer, private apiModel: ApiModelService) {
-    // this.apiModel.healtCheck();
+    this.apiModel.healtCheck();
   }
 
   sanitize(url: string) {
@@ -60,7 +62,6 @@ export class TransferComponent implements OnInit {
 
   stopRecording() {
     this.recording = false;
-    console.log(this.record)
     this.record.stop(this.processRecording.bind(this));
     let stream = this.stream;
     stream.getAudioTracks().forEach(track => track.stop());
@@ -80,29 +81,29 @@ export class TransferComponent implements OnInit {
   errorCallback(error) {
     this.error = 'Can not play audio in your browser';
   }
-  
-  saveAsBlob() {
-    //Descargar el blob con una etiqueta invisible machete :v
-    let a = document.createElement('a');
-    document.body.appendChild(a);
-    a.setAttribute('style', 'display: none');
-    a.href = this.url;
-    a.download = "audio";
-    a.click();
-    a.remove();
-  }
+
 
   processAudio() {
+    this.firstTransfer = true;
     if ((this.url) && (this.styleId)) {
-      this.setModelResponse(this.url);
-      // this.saveAsBlob();
-
       const formData = new FormData();
-      formData.append('target_id', '2');
+      formData.append('target_id', this.styleId);
       formData.append('model_id', '0');
       formData.append('content_file', this.file);
 
-      this.apiModel.trasnferOnFire(formData);
+      this.apiModel.trasnferOnFire(formData).subscribe((response) => {
+        this.setModelResponse(response['content_url'], response['target_url']);
+
+        if (!this.modelList) this.modelList = [];
+
+        this.modelList.push({
+          name: this.getNameFromId(this.styleId),
+          content_url: response['content_url'],
+          target_url: response['target_url']
+        })
+        console.log(this.modelList)
+      });
+
     } else {
       alert('Debes grabar una frase y seleccionar un estilo')
     }
@@ -113,8 +114,31 @@ export class TransferComponent implements OnInit {
     this.styleId = id;
   }
 
-  setModelResponse(modelResponse) {
-    this.modelResponse = modelResponse;
+  setModelResponse(content_url, target_url) {
+    this.target_url = target_url;
+    this.content_url = content_url;
+  }
+  getNameFromId(id) {
+    switch (id) {
+      case 1:
+        return "Jose Arango"
+      case 2:
+        return "Carlos Montoya"
+      case 3:
+        return "Leon Arango"
+      default:
+        return "Invalid Id"
+    }
+  }
+
+  saveAsBlob() {
+    let a = document.createElement('a');
+    document.body.appendChild(a);
+    a.setAttribute('style', 'display: none');
+    a.href = this.url;
+    a.download = "audio";
+    a.click();
+    a.remove();
   }
 
   ngOnInit() {

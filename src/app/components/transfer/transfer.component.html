@@ -64,16 +64,37 @@
       </div>
    </div>
 </div>
-<div class="container-fluid text-center pt-4 pb-4" *ngIf="modelResponse">
+<div class="container-fluid text-center pt-4 pb-4" *ngIf="firstTransfer">
    <div class="row">
       <div class="col">
-         <h2 class="fs-title text-center">Resultado</h2>
+         <h2 class="fs-title text-center">Resultados</h2>
       </div>
    </div>
-   <div class="row mt-4">
-      <div class="col audio-div">
-         <div class="clearfix"></div>
-         <audio controls="" id='audiotest' [src]="sanitize(modelResponse)" type="audio/wav"></audio>
+   <div class="row" *ngIf="!modelList">
+      <div class="col mt-4">
+         <img src="/assets/loading.gif" alt="loading" width="15%">
+         <h4 class="fs-subtitle text-center">Cargando...</h4>
+      </div>
+   </div>
+   <div class="row mt-4" *ngIf="content_url">
+      <div class="col-sm-12 col-md-8 audio-div">
+         <h3 class="fs-title text-center">Ultima</h3>
+         <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6">
+               <h4 class="fs-subtitle text-center">Original</h4>
+               <audio controls="" id='audiotest' [src]="content_url" type="audio/wav"></audio>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6">
+               <h4 class="fs-subtitle text-center">Transferencia</h4>
+               <audio controls="" id='audiotest' [src]="target_url" type="audio/wav"></audio>
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-12 col-md-4 audio-div">
+         <h3 class="fs-title text-center">Lista</h3>
+         <ul class="list-group">
+            <li class="list-group-item" *ngFor='let item of modelList;'>{{item.name}}</li>
+         </ul>
       </div>
    </div>
 </div>
