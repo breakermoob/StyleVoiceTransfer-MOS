@@ -1,100 +1,149 @@
 <div class="container-fluid">
-   <div class="row div-gradient div-height text-center">
-      <div class="col-12 my-auto">
-         <h1 class="text-white light">Style Voice Transfer</h1>
-         <h3 class="text-white light pt-2">Prueba del Modelo</h3>
-      </div>
-   </div>
+  <div class="row div-gradient div-height text-center">
+    <div class="col-12 my-auto">
+      <h1 class="text-white light">Style Voice Transfer</h1>
+      <h3 class="text-white light pt-2">Prueba del Modelo</h3>
+    </div>
+  </div>
 </div>
-<br>
-
+<br />
 
 <div class="container-fluid pt-4 pb-4">
-   <div class="container">
-      <div class="row">
-         <div class="col-12">
-            <h2 class="fs-title text-center">Tansferencia de Estilo</h2>
-            <p class="text-justify text-dark regular pt-4 mt-2">
-               Prueba el modelo realizando una transferencia de estilo en 3 simples pasos:
-            </p>
-            <ul>
-               <li>Graba el contenido que desees</li>
-               <li>Selecciona el estilo de voz que quieras escuchar</li>
-               <li>Envíalo para que sea procesado y disfruta</li>
-            </ul>
-         </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="fs-title text-center">Tansferencia de Estilo</h2>
+        <p class="text-justify text-dark regular pt-4 mt-2">
+          Prueba el modelo realizando una transferencia de estilo en 3 simples
+          pasos:
+        </p>
+        <ul>
+          <li>Graba el contenido que desees</li>
+          <li>Selecciona el estilo de voz que quieras escuchar</li>
+          <li>Envíalo para que sea procesado y disfruta</li>
+        </ul>
       </div>
-   </div>
+    </div>
+    <div class="row mt-4 mb-4 text-center">
+      <div class="col-12 mb-4">
+        <h2 class="fs-title text-center">Estilo Disponibles</h2>
+        <p class="text-justify text-dark regular pt-4 mt-2">
+          El modelo fue entrenado con los siguientes tres estilos, los cuales
+          puedes seleccionar para realizar las transferencias que desees.
+        </p>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <h3 class="fs-title text-center">Jose Arango</h3>
+        <audio controls>
+          <source src="/assets/voice_jose.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <h3 class="fs-title text-center">Carlos Montoya</h3>
+        <audio controls>
+          <source src="/assets/voice_daniel.wav" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <h3 class="fs-title text-center">Leon Arango</h3>
+        <audio controls>
+          <source src="/assets/voice_leon.wav" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
 
 <div class="container-fluid text-center bg-color pt-4 pb-4">
-   <br>
-   <h2 class="fs-title text-center">Formato para la Conversión</h2>
-   <div class="row mt-4">
-      <div class="col">
-         <button type="button" (click)="initiateRecording()" class="btn btn-outline-dark btn-play" *ngIf="!recording"><i
-               class="fa fa-microphone fa-2x"></i></button>
-         <button type="button" (click)="stopRecording()" class="btn btn-danger btn-stop" *ngIf="recording"><i
-               class="fa fa-stop fa-2x"></i></button>
+  <br />
+  <div class="row mt-4">
+    <div class="col">
+      <h2 class="fs-title text-center">1. Graba el Contenido</h2>
+      <button type="button" (click)="initiateRecording()" class="btn btn-outline-dark btn-play" *ngIf="!recording">
+        <i class="fa fa-microphone fa-2x"></i>
+      </button>
+      <button type="button" (click)="stopRecording()" class="btn btn-danger btn-stop" *ngIf="recording">
+        <i class="fa fa-stop fa-2x"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row mt-4" *ngIf="recording">
+    <div class="col audio-div">
+      <h4 class="fs-subtitle text-center">Grabando...</h4>
+    </div>
+  </div>
+  <div class="row mt-4" *ngIf="url">
+    <div class="col audio-div">
+      <div class="clearfix"></div>
+      <audio controls="">
+        <source [src]="sanitize(url)" type="audio/wav" />
+      </audio>
+    </div>
+  </div>
+  <div class="row mt-4 mb-4">
+    <div class="col">
+      <h2 class="fs-title text-center">2. Selecciona el estilo de voz</h2>
+
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" (click)="setStyleId(1)" class="btn btn-outline-dark">
+          Jose Arango
+        </button>
+        <button type="button" (click)="setStyleId(2)" class="btn btn-outline-dark">
+          Carlos Montoya
+        </button>
+        <button type="button" (click)="setStyleId(3)" class="btn btn-outline-dark">
+          Leon Arango
+        </button>
       </div>
-   </div>
-   <div class="row mt-4">
-      <div class="col audio-div">
-         <div class="clearfix"></div>
-         <audio controls="" *ngIf="url">
-            <source [src]="sanitize(url)" type="audio/wav">
-         </audio>
-      </div>
-   </div>
-   <div class="row mt-4 mb-4">
-      <div class="col">
-         <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" (click)="setStyleId(1)" class="btn btn-outline-dark">Jose Arango</button>
-            <button type="button" (click)="setStyleId(2)" class="btn btn-outline-dark">Carlos Montoya</button>
-            <button type="button" (click)="setStyleId(3)" class="btn btn-outline-dark">Leon Arango</button>
-         </div>
-      </div>
-   </div>
-   <div class="row mt-4 mb-4">
-      <div class="col">
-         <button type="button" (click)="processAudio()" class="btn btn-dark">Procesar Audio</button>
-      </div>
-   </div>
+    </div>
+  </div>
+  <div class="row mt-4 mb-4">
+    <div class="col">
+      <button type="button" (click)="processAudio()" class="btn btn-dark">
+        3. Procesar Audio
+      </button>
+    </div>
+  </div>
 </div>
-<div class="container-fluid text-center pt-4 pb-4" *ngIf="firstTransfer">
-   <div class="row">
-      <div class="col">
-         <h2 class="fs-title text-center">Resultados</h2>
+<div class="container text-center pt-4 pb-4" *ngIf="firstTransfer">
+  <div class="row">
+    <div class="col">
+      <h2 class="fs-title text-center">Resultados</h2>
+      <h3 class="fs-title text-center mb-4">Estilo de Voz: {{name}}</h3>
+    </div>
+  </div>
+  <div class="row" *ngIf="!modelList">
+    <div class="col mt-4">
+      <img src="/assets/loading.gif" alt="loading" width="15%" />
+      <h4 class="fs-subtitle text-center">Cargando...</h4>
+    </div>
+  </div>
+  <div class="row mt-4" *ngIf="content_url">
+    <div class="col-sm-12 col-md-10 audio-div">
+      <div class="row">
+        <div class="col-sm-12 col-md-9">
+          <h4 class="fs-subtitle text-center">Original</h4>
+          <audio controls="" class="mb-4" id="audiotest" [src]="content_url" type="audio/wav"></audio>
+          <br>
+          <br>
+          <h4 class="fs-subtitle text-center">Transferencia</h4>
+          <audio controls="" class="mb-4" id="audiotest" [src]="target_url" type="audio/wav"></audio>
+        </div>
+        <div class="col-sm-12 col-md-3 audio-div">
+          <h3 class="fs-title text-center">Lista</h3>
+          <h6 class="fs-subtitle text-center" style="display: inline-block;">Audios procesando: {{queue}}</h6>
+          <img src="/assets/loading.gif" alt="loading" width="20%" *ngIf="processing" />
+          <ul class="list-group">
+            <li class="list-group-item list-transfer" *ngFor="let item of modelList"
+              (click)="setModelResponse(item.content_url, item.target_url, item.name)">
+              {{ item.name }}
+            </li>
+          </ul>
+        </div>
       </div>
-   </div>
-   <div class="row" *ngIf="!modelList">
-      <div class="col mt-4">
-         <img src="/assets/loading.gif" alt="loading" width="15%">
-         <h4 class="fs-subtitle text-center">Cargando...</h4>
-      </div>
-   </div>
-   <div class="row mt-4" *ngIf="content_url">
-      <div class="col-sm-12 col-md-8 audio-div">
-         <h3 class="fs-title text-center">Ultima</h3>
-         <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-6">
-               <h4 class="fs-subtitle text-center">Original</h4>
-               <audio controls="" id='audiotest' [src]="content_url" type="audio/wav"></audio>
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-6">
-               <h4 class="fs-subtitle text-center">Transferencia</h4>
-               <audio controls="" id='audiotest' [src]="target_url" type="audio/wav"></audio>
-            </div>
-         </div>
-      </div>
-      <div class="col-sm-12 col-md-4 audio-div">
-         <h3 class="fs-title text-center">Lista</h3>
-         <ul class="list-group">
-            <li class="list-group-item" *ngFor='let item of modelList;'>{{item.name}}</li>
-         </ul>
-      </div>
-   </div>
+    </div>
+  </div>
 </div>
