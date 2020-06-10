@@ -42,7 +42,6 @@ export class TransferComponent implements OnInit {
 
   initiateRecording() {
     this.url = null;
-    this.recording = true;
     let mediaConstraints = {
       video: false,
       audio: true,
@@ -54,6 +53,8 @@ export class TransferComponent implements OnInit {
   }
 
   successCallback(stream) {
+    console.log(stream);
+    this.recording = true;
     var options = {
       mimeType: "audio/wav",
       numberOfAudioChannels: 1,
@@ -86,7 +87,8 @@ export class TransferComponent implements OnInit {
   }
 
   errorCallback(error) {
-    this.error = "Can not play audio in your browser";
+    console.log(error);
+    this.error = "Debe conceder permisos de audio";
   }
 
   processAudio() {

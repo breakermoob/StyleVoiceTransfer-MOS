@@ -70,6 +70,11 @@
       </button>
     </div>
   </div>
+  <div class="row mt-4" *ngIf="error">
+    <div class="col audio-div">
+      <h4 class="fs-subtitle text-center" style="color: red;">{{error}}</h4>
+    </div>
+  </div>
   <div class="row mt-4" *ngIf="recording">
     <div class="col audio-div">
       <h4 class="fs-subtitle text-center">Grabando...</h4>
