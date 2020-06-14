@@ -53,8 +53,8 @@ export class TransferComponent implements OnInit {
   }
 
   successCallback(stream) {
-    console.log(stream);
     this.recording = true;
+    this.error = null;
     var options = {
       mimeType: "audio/wav",
       numberOfAudioChannels: 1,

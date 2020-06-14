@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MosComponent } from './components/mos/mos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TransferComponent } from './components/transfer/transfer.component';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TransferComponent } from './components/transfer/transfer.component';
     HomeComponent,
     MosComponent,
     FooterComponent,
-    TransferComponent
+    TransferComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
