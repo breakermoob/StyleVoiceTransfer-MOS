@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class ApiModelService {
-  URL = "http://34.74.168.60";
+  URL = "http://34.73.196.164";
   PORT = "8000";
 
   constructor(private http: HttpClient) {}
