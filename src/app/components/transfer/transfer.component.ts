@@ -3,6 +3,7 @@ import * as RecordRTC from "recordrtc";
 import { DomSanitizer } from "@angular/platform-browser";
 import { ApiModelService } from "src/app/services/model/api-model.service";
 import { FormBuilder } from "@angular/forms";
+declare var $: any;
 
 @Component({
   selector: "app-transfer",
@@ -26,6 +27,8 @@ export class TransferComponent implements OnInit {
   listCount: number = 0;
   queue: number = 0;
   processing: boolean = false;
+  modalMessage;
+  checkbox = false;
 
   constructor(
     public fb: FormBuilder,
@@ -91,10 +94,52 @@ export class TransferComponent implements OnInit {
     this.error = "Debe conceder permisos de audio";
   }
 
+  dataPermission() {
+    if (this.checkbox) {
+      if (this.url && this.styleId) {
+        this.processAudio();
+      } else {
+        $("#modal").modal("show");
+        this.modalMessage = "Debes grabar una frase y seleccionar un estilo.";
+      }
+    } else {
+      $("#modal").modal("show");
+      this.modalMessage = "Debes aceptar el tratamiento de los datos.";
+    }
+  }
+
   processAudio() {
     this.firstTransfer = true;
-    if (this.url && this.styleId) {
-      this.listCount++;
+    this.listCount++;
+    if (this.modelList) {
+      this.queue = this.listCount - this.modelList.length;
+    }
+    if (this.queue > 0) {
+      this.processing = true;
+    } else {
+      this.processing = false;
+    }
+    this.name = this.getNameFromId(this.styleId);
+    const formData = new FormData();
+    formData.append("target_id", this.styleId);
+    formData.append("model_id", "0");
+    formData.append("content_file", this.file);
+
+    this.apiModel.trasnferOnFire(formData).subscribe((response) => {
+      console.log(response);
+      this.setModelResponse(
+        response["content_url"],
+        response["target_url"],
+        this.getNameFromId(response["target_id"])
+      );
+
+      if (!this.modelList) this.modelList = [];
+
+      this.modelList.push({
+        name: this.getNameFromId(response["target_id"]),
+        content_url: response["content_url"],
+        target_url: response["target_url"],
+      });
       if (this.modelList) {
         this.queue = this.listCount - this.modelList.length;
       }
@@ -103,38 +148,7 @@ export class TransferComponent implements OnInit {
       } else {
         this.processing = false;
       }
-      this.name = this.getNameFromId(this.styleId);
-      const formData = new FormData();
-      formData.append("target_id", this.styleId);
-      formData.append("model_id", "0");
-      formData.append("content_file", this.file);
-
-      this.apiModel.trasnferOnFire(formData).subscribe((response) => {
-        this.setModelResponse(
-          response["content_url"],
-          response["target_url"],
-          this.getNameFromId(this.styleId)
-        );
-
-        if (!this.modelList) this.modelList = [];
-
-        this.modelList.push({
-          name: this.getNameFromId(this.styleId),
-          content_url: response["content_url"],
-          target_url: response["target_url"],
-        });
-        if (this.modelList) {
-          this.queue = this.listCount - this.modelList.length;
-        }
-        if (this.queue > 0) {
-          this.processing = true;
-        } else {
-          this.processing = false;
-        }
-      });
-    } else {
-      alert("Debes grabar una frase y seleccionar un estilo");
-    }
+    });
   }
 
   setStyleId(id) {
